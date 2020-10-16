@@ -85,7 +85,7 @@ public final class NumberGenerator {
 
     private static Character randomCharacter() {
         final String all = UPPER.concat(UPPER.toLowerCase()).concat(DIGITS);
-        return all.charAt(RAND.nextInt(all.length() - 1));
+        return all.charAt(RAND.nextInt(all.length()));
     }
 
     private NumberGenerator() {
