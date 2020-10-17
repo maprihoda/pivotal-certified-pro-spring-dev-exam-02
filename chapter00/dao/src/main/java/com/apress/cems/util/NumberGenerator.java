@@ -76,11 +76,11 @@ public final class NumberGenerator {
     }
 
     private static Character randomUppercase() {
-        return UPPER.charAt(RAND.nextInt(UPPER.length() - 1));
+        return UPPER.charAt(RAND.nextInt(UPPER.length()));
     }
 
     private static Character randomDigit() {
-        return DIGITS.charAt(RAND.nextInt(DIGITS.length() - 1));
+        return DIGITS.charAt(RAND.nextInt(DIGITS.length()));
     }
 
     private static Character randomCharacter() {
