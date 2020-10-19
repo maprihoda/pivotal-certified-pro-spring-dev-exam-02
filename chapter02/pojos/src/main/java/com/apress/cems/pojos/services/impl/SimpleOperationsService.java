@@ -99,6 +99,7 @@ public class SimpleOperationsService implements OperationsService {
                 criminalCase.setLeadInvestigator(detectiveOpt.get());
                 criminalCaseRepo.save(criminalCase);
             }
+            return opt;
         }
         return Optional.empty();
     }
@@ -108,10 +109,8 @@ public class SimpleOperationsService implements OperationsService {
         var opt = criminalCaseRepo.findByNumber(caseNumber);
         if (opt.isPresent()) {
             var criminalCase = opt.get();
-            criminalCase.getEvidenceSet().forEach(evidence -> {
-                evidence.setCriminalCase(criminalCase);
-                evidenceRepo.save(evidence);
-            });
+            evidenceList.forEach(criminalCase::addEvidence);
+            criminalCaseRepo.save(criminalCase);
             return opt;
         }
         return Optional.empty();
