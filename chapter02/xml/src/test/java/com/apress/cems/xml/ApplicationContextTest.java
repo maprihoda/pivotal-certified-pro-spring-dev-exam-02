@@ -48,6 +48,10 @@ class ApplicationContextTest {
         assertNotNull(ctx);
         var dataSource = ctx.getBean("dataSource", DataSource.class);
         assertNotNull(dataSource);
+
+        var detectiveRepo = ctx.getBean("detectiveRepo", DetectiveRepo.class);
+        assertNotNull(detectiveRepo);
+
         ctx.registerShutdownHook();
     }
 
